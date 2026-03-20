@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shafqat Ali - Senior Flutter Developer & Team Lead portfolio showcasing projects, experience, and technical expertise." />
+  <meta name="keywords" content="Shafqat Ali, Senior Flutter Developer, Flutter Team Lead, Mobile App Architect, Karachi, Flutter Portfolio" />
+  <meta name="author" content="Shafqat Ali" />
+  <meta property="og:title" content="Shafqat Ali | Senior Flutter Developer Portfolio" />
+  <meta property="og:description" content="Professional portfolio of Shafqat Ali - Senior Flutter Developer & Team Lead." />
+  <meta property="og:type" content="website" />
+  <title>Shafqat Ali | Senior Flutter Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #0f0f1a;
+      --primary: #7c3aed;
+      --secondary: #a855f7;
+      --text: #ffffff;
+      --muted: #94a3b8;
+      --glow: rgba(124, 58, 237, 0.3);
+      --border: rgba(168, 85, 247, 0.22);
+      --nav-h: 74px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, var(--glow) 0%, rgba(124,58,237,0.08) 35%, rgba(124,58,237,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      filter: blur(10px);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1160px, 92%); margin: 0 auto; position: relative; z-index: 2; }
+    section { padding: 90px 0; position: relative; }
+
+    .section-title {
+      font-size: clamp(1.65rem, 2.4vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 760px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-h);
+      z-index: 15;
+      transition: 0.35s ease;
+      display: flex;
+      align-items: center;
+    }
+    .navbar.scrolled {
+      background: rgba(10,10,15,0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(168,85,247,0.15);
+    }
+    .nav-wrap {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      font-size: 1.1rem;
+    }
+    .logo span { color: var(--secondary); }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(168,85,247,0.32);
+      border-radius: 10px;
+      background: rgba(15,15,26,0.9);
+      color: #e6dbff;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+    .menu-toggle:hover {
+      box-shadow: 0 0 16px var(--glow);
+      border-color: rgba(168,85,247,0.58);
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.28s ease;
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav-links a.active, .nav-links a:hover { color: var(--secondary); }
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 16px var(--glow);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+    }
+    #particles-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.62;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+      transition: transform 0.25s ease-out;
+      will-change: transform;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.8rem);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .typing-line {
+      min-height: 42px;
+      font-size: clamp(1.08rem, 3.3vw, 1.72rem);
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .typing-line .caret {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      vertical-align: middle;
+      background: var(--secondary);
+      margin-left: 3px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-summary {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 28px;
+      font-size: 1.03rem;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+    .btn {
+      border: 1px solid transparent;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 0 28px var(--glow);
+    }
+    .btn-outline {
+      border-color: var(--primary);
+      color: var(--secondary);
+      background: rgba(124,58,237,0.08);
+    }
+    .btn-outline:hover { box-shadow: 0 0 18px var(--glow); }
+
+    .stats-bar {
+      background: rgba(15,15,26,0.8);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      gap: 10px;
+      padding: 16px 14px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 16px 45px rgba(0,0,0,0.35);
+    }
+    .stat-item {
+      text-align: center;
+      font-size: 0.93rem;
+      color: #d6c8f6;
+    }
+    .stat-item strong {
+      display: block;
+      color: #fff;
+      font-size: 1.12rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(168,85,247,0.16);
+      border-radius: 16px;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(168,85,247,0.52);
+      box-shadow: 0 0 28px var(--glow);
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .photo-placeholder {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: 3px solid rgba(168,85,247,0.6);
+      background: radial-gradient(circle at 30% 30%, #1b1530, #0e0e17);
+      box-shadow: 0 0 26px var(--glow), inset 0 0 24px rgba(124,58,237,0.25);
+      display: grid;
+      place-items: center;
+      color: #b49adf;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.92rem;
+    }
+    .about-text { color: var(--muted); margin-bottom: 18px; }
+    .about-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #d8c9f8;
+      border: 1px solid rgba(168,85,247,0.36);
+      background: rgba(124,58,237,0.12);
+      padding: 5px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .about-heading {
+      font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .about-highlights {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 18px;
+    }
+    .about-highlights li {
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .about-highlights i {
+      color: var(--secondary);
+      margin-top: 5px;
+      font-size: 0.78rem;
+    }
+    .about-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .impact-card {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(168,85,247,0.24);
+      background: linear-gradient(145deg, rgba(124,58,237,0.12), rgba(20,20,36,0.9));
+      text-align: center;
+    }
+    .impact-card strong {
+      display: block;
+      font-size: 1.06rem;
+      color: #fff;
+    }
+    .impact-card span {
+      color: #cdb8f3;
+      font-size: 0.8rem;
+    }
+    .about-mini-timeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .about-mini-timeline span {
+      font-size: 0.78rem;
+      color: #d6c8f6;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(168,85,247,0.3);
+      background: rgba(124,58,237,0.1);
+    }
+    .skill-bars { margin-top: 10px; display: grid; gap: 14px; }
+    .skill-row { display: grid; gap: 7px; }
+    .skill-row .top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: #d5c8f6;
+    }
+    .skill-track {
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #171724;
+      border: 1px solid rgba(168,85,247,0.15);
+    }
+    .skill-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 14px var(--glow);
+      transition: width 1.2s ease;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .skill-card { padding: 18px; }
+    .skill-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+    }
+    .skill-card h3 i { color: var(--secondary); }
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 12px;
+      padding-left: 28px;
+      display: grid;
+      gap: 22px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(var(--primary), var(--secondary));
+      box-shadow: 0 0 14px var(--glow);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 18px;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 27px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 0 rgba(168,85,247,0.6);
+      animation: pulseDot 2.2s infinite;
+    }
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(168,85,247,0.65); }
+      70% { box-shadow: 0 0 0 12px rgba(168,85,247,0); }
+      100% { box-shadow: 0 0 0 0 rgba(168,85,247,0); }
+    }
+    .timeline-meta {
+      color: #ceb8f7;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .timeline h3 { font-size: 1.06rem; margin-bottom: 7px; }
+    .timeline ul { padding-left: 18px; list-style: disc; color: var(--muted); }
+    .timeline li { margin-bottom: 6px; font-size: 0.93rem; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .project-card { padding: 16px; }
+    .screenshot {
+      height: 180px;
+      border: 1px dashed rgba(168,85,247,0.5);
+      border-radius: 12px;
+      background: linear-gradient(140deg, #141428, #10111f);
+      display: grid;
+      place-items: center;
+      color: #bda5e8;
+      margin-bottom: 14px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: center;
+      padding: 10px;
+    }
+    .project-card:hover .screenshot {
+      transform: scale(1.03);
+      box-shadow: inset 0 0 0 1px rgba(168,85,247,0.6), 0 0 20px var(--glow);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(124,58,237,0.22);
+      border: 1px solid rgba(168,85,247,0.45);
+      color: #dccbfd;
+      margin: 7px 0 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .tags span {
+      font-size: 0.75rem;
+      color: #d8c9f7;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: rgba(124,58,237,0.14);
+      border: 1px solid rgba(168,85,247,0.2);
+    }
+    .project-card p { color: var(--muted); font-size: 0.92rem; }
+
+    .open-grid, .cert-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+    .open-card, .cert-card, .edu-card { padding: 18px; }
+    .open-card a {
+      color: var(--secondary);
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    .open-card p, .cert-card p, .edu-card p { color: var(--muted); font-size: 0.92rem; margin-top: 8px; }
+
+    .cert-card h3, .edu-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+    }
+    .cert-card h3 i { color: var(--secondary); }
+    .education-grid { display: grid; grid-template-columns: repeat(2, minmax(270px, 1fr)); gap: 16px; }
+
+    .contact-card {
+      padding: 22px;
+      border: 1px solid rgba(168,85,247,0.35);
+      box-shadow: 0 0 24px var(--glow);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .contact-info li {
+      margin-bottom: 9px;
+      color: var(--muted);
+    }
+    .contact-info i {
+      width: 18px;
+      color: var(--secondary);
+      margin-right: 8px;
+    }
+    .contact-form {
+      display: grid;
+      gap: 10px;
+    }
+    .input {
+      width: 100%;
+      background: #111121;
+      border: 1px solid rgba(168,85,247,0.24);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(168,85,247,0.16);
+    }
+
+    footer {
+      border-top: 1px solid rgba(168,85,247,0.16);
+      padding: 24px 0 34px;
+      text-align: center;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #121223;
+      border: 1px solid rgba(168,85,247,0.24);
+      color: #d7c6f8;
+      transition: 0.28s ease;
+    }
+    .socials a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 18px var(--glow);
+      color: #fff;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 992px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .about-wrap, .contact-grid, .education-grid, .projects-grid, .open-grid, .cert-grid, .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-impact-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .photo-placeholder { width: 220px; height: 220px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: calc(var(--nav-h) - 2px);
+        right: 4%;
+        width: min(320px, 92vw);
+        background: rgba(10,10,15,0.96);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(168,85,247,0.26);
+        border-radius: 14px;
+        padding: 12px;
+        display: grid;
+        gap: 4px;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: 0.25s ease;
+      }
+      .nav-links.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .nav-links a {
+        padding: 10px 10px;
+        border-radius: 8px;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: rgba(124,58,237,0.14);
+      }
+      .nav-links a.active::after { display: none; }
+    }
+    @media (max-width: 540px) {
+      section { padding: 74px 0; }
+      .hero-summary { font-size: 0.95rem; }
+      .about-impact-grid { grid-template-columns: 1fr; }
+      .btn { width: 100%; justify-content: center; }
+      .hero-actions { flex-direction: column; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .timeline { margin-left: 4px; padding-left: 24px; }
+      .timeline-item::before { left: -24px; }
+    }
+
+    /* === FILTER TABS === */
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .filter-tab {
+      padding: 7px 18px; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; border: 1px solid rgba(168,85,247,0.28); background: transparent;
+      color: var(--muted); font-family: inherit; transition: 0.25s ease;
+    }
+    .filter-tab:hover { color: var(--secondary); border-color: rgba(168,85,247,0.55); }
+    .filter-tab.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff; border-color: transparent; box-shadow: 0 0 16px var(--glow);
+    }
+    .filter-hidden { display: none !important; }
+
+    /* === ACHIEVEMENT CALLOUT (EXPERIENCE) === */
+    .achievement-callout {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.13), rgba(168,85,247,0.06));
+      border-left: 3px solid var(--secondary); padding: 10px 14px;
+      border-radius: 0 10px 10px 0; margin-top: 14px;
+      box-shadow: inset 0 0 18px rgba(124,58,237,0.04);
+    }
+    .achievement-callout i { color: var(--secondary); margin-top: 2px; font-size: 0.9rem; flex-shrink: 0; }
+    .achievement-callout p { font-size: 0.87rem; color: #d6c8f6; line-height: 1.5; }
+
+    /* === ROLE BADGE === */
+    .role-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700; padding: 2px 9px;
+      border-radius: 999px; margin-left: 8px; vertical-align: middle;
+    }
+    .role-lead   { background: rgba(124,58,237,0.22); border: 1px solid rgba(168,85,247,0.55); color: #dbb8ff; }
+    .role-senior { background: rgba(59,130,246,0.18); border: 1px solid rgba(99,179,237,0.45); color: #90cdf4; }
+    .role-mid    { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4);  color: #fbbf24; }
+    .role-junior { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4);  color: #6ee7b7; }
+
+    /* === PHONE FRAME (PROJECTS) === */
+    .phone-frame {
+      position: relative; height: 200px;
+      background: linear-gradient(145deg, #0d0d1c, #141428);
+      border-radius: 22px; border: 3px solid rgba(168,85,247,0.48);
+      padding: 22px 14px 14px; margin-bottom: 14px;
+      box-shadow: 0 0 0 5px rgba(168,85,247,0.06), 0 0 28px rgba(124,58,237,0.18);
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; color: #bda5e8; text-align: center;
+      gap: 5px; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .phone-frame::before {
+      content: ''; position: absolute; top: 8px; left: 50%;
+      transform: translateX(-50%); width: 36px; height: 5px;
+      background: rgba(168,85,247,0.5); border-radius: 999px;
+    }
+    .phone-frame > i { font-size: 2rem; color: rgba(168,85,247,0.75); }
+    .phone-frame > span { font-size: 0.85rem; font-weight: 600; }
+    .phone-frame .img-hint { font-size: 0.72rem; color: #5c5180; }
+    .project-card:hover .phone-frame {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: 0 0 0 5px rgba(168,85,247,0.12), 0 0 42px rgba(124,58,237,0.32);
+      border-color: rgba(168,85,247,0.75);
+    }
+
+    /* === TERMINAL CARD (OPEN SOURCE) === */
+    .terminal-card {
+      background: #07070f; border: 1px solid rgba(168,85,247,0.28);
+      border-radius: 16px; overflow: hidden; transition: 0.3s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    }
+    .terminal-card:hover {
+      transform: translateY(-6px); border-color: rgba(168,85,247,0.52);
+      box-shadow: 0 0 28px var(--glow);
+    }
+    .terminal-header {
+      background: rgba(168,85,247,0.1); padding: 9px 14px;
+      display: flex; align-items: center; gap: 6px;
+      border-bottom: 1px solid rgba(168,85,247,0.14);
+    }
+    .t-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .t-dot.r { background: #ff5f57; } .t-dot.y { background: #febc2e; } .t-dot.g { background: #28c840; }
+    .terminal-title { font-size: 0.78rem; color: var(--muted); margin-left: 6px; font-family: monospace; }
+    .terminal-body { padding: 18px; }
+    .terminal-body h3 { font-size: 1rem; margin-bottom: 4px; }
+    .terminal-body .pkg-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
+    .install-row {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(124,58,237,0.1); border: 1px solid rgba(168,85,247,0.2);
+      border-radius: 8px; padding: 9px 12px;
+      font-family: 'Courier New', monospace; font-size: 0.82rem; color: #b9a1f0;
+      margin-bottom: 12px; overflow: hidden;
+    }
+    .install-prefix { color: #7c6aa4; flex-shrink: 0; }
+    .install-row > span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
+    .copy-btn {
+      flex-shrink: 0; margin-left: auto;
+      background: rgba(168,85,247,0.18); border: 1px solid rgba(168,85,247,0.3);
+      color: var(--secondary); border-radius: 6px; cursor: pointer;
+      padding: 4px 10px; font-size: 0.75rem; font-family: inherit; transition: 0.2s;
+    }
+    .copy-btn:hover { background: rgba(168,85,247,0.35); }
+    .copy-btn.copied { color: #6ee7b7; border-color: rgba(16,185,129,0.4); }
+    .open-pkg-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pkg-link {
+      font-size: 0.82rem; color: var(--secondary);
+      display: inline-flex; align-items: center; gap: 5px; transition: 0.2s;
+    }
+    .pkg-link:hover { color: #fff; }
+
+    /* === FLIP CARD (CERTIFICATIONS) === */
+    .cert-flip { perspective: 900px; cursor: pointer; height: 162px; }
+    .cert-flip-inner {
+      position: relative; width: 100%; height: 100%;
+      transform-style: preserve-3d; transition: transform 0.55s ease;
+    }
+    .cert-flip:hover .cert-flip-inner,
+    .cert-flip.flipped .cert-flip-inner { transform: rotateY(180deg); }
+    .cert-face {
+      position: absolute; inset: 0; backface-visibility: hidden;
+      -webkit-backface-visibility: hidden; background: var(--card);
+      border: 1px solid rgba(168,85,247,0.18); border-radius: 16px; padding: 20px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .cert-back-face {
+      transform: rotateY(180deg);
+      background: linear-gradient(145deg, rgba(124,58,237,0.18), var(--card));
+      border-color: rgba(168,85,247,0.4);
+    }
+    .cert-face h3 { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; }
+    .cert-face h3 i { color: var(--secondary); }
+    .cert-issuer { font-size: 0.78rem; color: #cdb8f3; margin-top: 6px; display: flex; align-items: center; gap: 6px; }
+    .cert-flip-hint { font-size: 0.72rem; color: #5b4f80; margin-top: 8px; }
+    .cert-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cert-skills span {
+      font-size: 0.72rem; padding: 3px 8px; border-radius: 6px;
+      background: rgba(124,58,237,0.15); border: 1px solid rgba(168,85,247,0.25); color: #cdb8f3;
+    }
+    .verified-badge {
+      display: inline-flex; align-items: center; gap: 5px; font-size: 0.74rem;
+      color: #6ee7b7; border: 1px solid rgba(16,185,129,0.35);
+      background: rgba(16,185,129,0.1); padding: 3px 9px;
+      border-radius: 999px; margin-top: 10px;
+    }
+
+    /* === EDUCATION PROGRESS === */
+    .edu-progress-wrap { margin-top: 12px; }
+    .edu-progress-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.8rem; color: #cdb8f3; margin-bottom: 6px;
+    }
+    .edu-progress-track {
+      height: 6px; border-radius: 999px; background: #14142a; overflow: hidden;
+    }
+    .edu-progress-fill {
+      height: 100%; border-radius: 999px; width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 10px var(--glow); transition: width 1.3s ease;
+    }
+    .edu-modules { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .edu-modules span {
+      font-size: 0.72rem; padding: 3px 8px; border-radius: 6px;
+      background: rgba(124,58,237,0.1); border: 1px solid rgba(168,85,247,0.2); color: #cdb8f3;
+    }
+
+    /* === AVAILABLE BADGE + WHATSAPP (CONTACT) === */
+    .available-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.38);
+      color: #10b981; padding: 6px 15px; border-radius: 999px;
+      font-size: 0.82rem; font-weight: 600; margin-bottom: 16px;
+    }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #10b981;
+      animation: pulse-green 1.5s ease infinite; flex-shrink: 0;
+    }
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.55); }
+      50%       { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
+    }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.32);
+      color: #25d366; padding: 10px 18px; border-radius: 12px;
+      font-weight: 600; font-size: 0.9rem; transition: 0.25s ease; margin-top: 14px;
+    }
+    .whatsapp-btn:hover {
+      background: rgba(37,211,102,0.2); transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(37,211,102,0.22); color: #25d366;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a class="logo" href="#home">Shafqat<span> Ali</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#opensource">Open Source</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="particles-canvas" aria-hidden="true"></canvas>
+      <div class="container hero-content reveal">
+        <h1>Shafqat Ali</h1>
+        <p class="typing-line"><span id="typedText"></span><span class="caret"></span></p>
+        <p class="hero-summary">
+          Senior Flutter Developer & Team Lead with 5+ years of experience designing and delivering production-grade cross-platform mobile applications for Android and iOS. Proven track record of shipping apps with 1M+ downloads.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-briefcase"></i>View My Work</a>
+          <a class="btn btn-outline" href="cv.pdf" download><i class="fa-solid fa-download"></i>Download CV</a>
+        </div>
+        <div class="stats-bar">
+          <div class="stat-item"><strong>5+</strong>Years Experience</div>
+          <div class="stat-item"><strong>15+</strong>Apps Shipped</div>
+          <div class="stat-item"><strong>1M+</strong>Downloads</div>
+          <div class="stat-item"><strong>4</strong>Developers Led</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">An engineering-first mobile leader focused on scalable architecture, polished UX, and business impact.</p>
+        <div class="about-wrap">
+          <div class="photo-placeholder card">
+            <!-- REPLACE: Add your photo as profile.jpg -->
+            Professional Photo Placeholder<br />profile.jpg
+          </div>
+          <div>
+            <span class="about-tagline"><i class="fa-solid fa-sparkles"></i>Flutter Architect | Team Builder | Product-Minded Engineer</span>
+            <h3 class="about-heading">Building mobile products people trust and teams can scale.</h3>
+            <p class="about-text">
+              I am a Senior Flutter Developer and Team Lead focused on building production-grade mobile apps that are fast, scalable, and business-ready. Over the last 5+ years, I have delivered cross-platform products for EdTech, real estate, and enterprise clients, from architecture design to app store release.
+            </p>
+            <p class="about-text">
+              My strength is combining clean engineering with execution speed: robust state management, modular architecture, real-time systems, and smooth UI performance. I mentor developers, run code reviews, and establish reusable standards that help teams ship faster with fewer regressions.
+            </p>
+            <ul class="about-highlights">
+              <li><i class="fa-solid fa-circle-check"></i>Led Flutter teams with architecture guidance, code quality practices, and delivery planning.</li>
+              <li><i class="fa-solid fa-circle-check"></i>Built real-time modules with chat, notifications, and webhook-driven workflows.</li>
+              <li><i class="fa-solid fa-circle-check"></i>Integrated Generative AI APIs to deliver smarter in-app experiences.</li>
+              <li><i class="fa-solid fa-circle-check"></i>Improved app performance and reduced API load through caching and SQLite optimization.</li>
+            </ul>
+            <div class="about-impact-grid">
+              <div class="impact-card"><strong>1M+</strong><span>Total Downloads</span></div>
+              <div class="impact-card"><strong>15+</strong><span>Apps Delivered</span></div>
+              <div class="impact-card"><strong>40%</strong><span>Perf Gains</span></div>
+            </div>
+            <div class="about-mini-timeline">
+              <span>2021: Junior Flutter Dev</span>
+              <span>2023: Senior Flutter Dev</span>
+              <span>2024: Flutter Team Lead</span>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="top"><span>Flutter/Dart</span><span>95%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="top"><span>Firebase</span><span>90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="top"><span>State Management</span><span>90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="top"><span>REST APIs</span><span>88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="88"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="top"><span>AI Integration</span><span>82%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="82"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="top"><span>CI/CD</span><span>78%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-width="78"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">A balanced stack covering mobile architecture, backend integration, testing, deployment, and AI-enabled features.</p>
+        <div class="filter-tabs" id="skillTabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="mobile">Mobile</button>
+          <button class="filter-tab" data-filter="ui">UI / UX</button>
+          <button class="filter-tab" data-filter="architecture">Architecture</button>
+          <button class="filter-tab" data-filter="backend">Backend</button>
+          <button class="filter-tab" data-filter="ai-devops">AI &amp; DevOps</button>
+          <button class="filter-tab" data-filter="testing">Testing</button>
+        </div>
+        <div class="skills-grid" id="skillsGrid">
+          <article class="card skill-card" data-cat="mobile"><h3><i class="fa-solid fa-mobile-screen-button"></i>Mobile Development</h3><p>Flutter, Dart, Android, iOS, Cross-platform, OOP, Null safety</p></article>
+          <article class="card skill-card" data-cat="ui"><h3><i class="fa-solid fa-palette"></i>UI / UX</h3><p>Dual Theme, Responsive UI, Adaptive Design, Material, Figma to Code</p></article>
+          <article class="card skill-card" data-cat="architecture"><h3><i class="fa-solid fa-sitemap"></i>State Management</h3><p>GetX, Provider, Bloc, MVVM, Dependency Injection, SOLID</p></article>
+          <article class="card skill-card" data-cat="backend"><h3><i class="fa-solid fa-server"></i>Backend &amp; APIs</h3><p>REST APIs, Dio, HTTP, JSON, Webhooks</p></article>
+          <article class="card skill-card" data-cat="backend"><h3><i class="fa-solid fa-fire"></i>Firebase</h3><p>Firestore, Realtime DB, Authentication, FCM, Analytics</p></article>
+          <article class="card skill-card" data-cat="backend"><h3><i class="fa-solid fa-wifi"></i>Real-Time Systems</h3><p>WebRTC, Sockets, Streams, Real-time chat</p></article>
+          <article class="card skill-card" data-cat="ai-devops"><h3><i class="fa-solid fa-robot"></i>AI Integration</h3><p>ChatGPT APIs, Generative AI</p></article>
+          <article class="card skill-card" data-cat="ai-devops"><h3><i class="fa-solid fa-shield-halved"></i>Security</h3><p>OAuth, Biometric Auth, Certificate Pinning</p></article>
+          <article class="card skill-card" data-cat="testing"><h3><i class="fa-solid fa-vial-circle-check"></i>Testing</h3><p>Unit Testing, Widget Testing, Integration Testing, Profiling &amp; Optimization</p></article>
+          <article class="card skill-card" data-cat="ai-devops"><h3><i class="fa-solid fa-cloud-arrow-up"></i>Deployment</h3><p>App Store, Play Store, CI/CD, Codemagic</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">Driving mobile teams and delivering robust Flutter products from architecture to release.</p>
+        <div class="timeline">
+          <article class="card timeline-item">
+            <div class="timeline-meta">Sep 2024 - Present</div>
+            <h3>Flutter Team Lead - MaxApex <span class="role-badge role-lead">Lead</span></h3>
+            <ul>
+              <li>Built and deployed Ed-Tech and enterprise Flutter apps.</li>
+              <li>Designed scalable architecture using GetX, MVVM, MVC, Clean Architecture.</li>
+              <li>Integrated backend systems (WHMCS) with real-time webhooks.</li>
+              <li>Developed real-time features: chat, notifications, file sharing.</li>
+              <li>Implemented AI-powered features using Generative AI APIs.</li>
+              <li>Reduced APIs load using local storage and SQLite by 50%.</li>
+              <li>Represented company at PASHA ICT Competition.</li>
+            </ul>
+            <div class="achievement-callout">
+              <i class="fa-solid fa-trophy"></i>
+              <p>Represented MaxApex at PASHA ICT Award — led full delivery of an AI-powered EdTech product with real-time chat and webhook-driven backend.</p>
+            </div>
+          </article>
+          <article class="card timeline-item">
+            <div class="timeline-meta">Mar 2023 - Sep 2024</div>
+            <h3>Senior Flutter Developer - Four-Fox <span class="role-badge role-senior">Senior</span></h3>
+            <ul>
+              <li>Led development of multiple production Flutter apps.</li>
+              <li>Led and mentored a team of 4 developers with code reviews.</li>
+              <li>Improved application performance by ~40%.</li>
+              <li>Reduced APIs load using local storage and SQLite by 40-60%.</li>
+              <li>Built standardized reusable project structure.</li>
+            </ul>
+            <div class="achievement-callout">
+              <i class="fa-solid fa-bolt"></i>
+              <p>Achieved ~40% performance boost and reduced API load by up to 60% through local caching and SQLite strategy. Standardized team-wide project templates.</p>
+            </div>
+          </article>
+          <article class="card timeline-item">
+            <div class="timeline-meta">Feb 2022 - Mar 2023</div>
+            <h3>Flutter Developer - Square Foot Exchange <span class="role-badge role-mid">Mid</span></h3>
+            <ul>
+              <li>Developed 3 major Real Estate Flutter applications.</li>
+              <li>Implemented IoT features using Method Channels.</li>
+              <li>Fingerprint scanner integration.</li>
+            </ul>
+            <div class="achievement-callout">
+              <i class="fa-solid fa-building"></i>
+              <p>Shipped 3 production Real Estate apps with IoT device control and biometric security — using Flutter Method Channels for native bridge integrations.</p>
+            </div>
+          </article>
+          <article class="card timeline-item">
+            <div class="timeline-meta">Sep 2021 - Feb 2022</div>
+            <h3>Flutter Developer - DigitalDoor <span class="role-badge role-junior">Junior</span></h3>
+            <ul>
+              <li>Developed and maintained 6 Flutter applications.</li>
+              <li>Integrated REST APIs, maps, payment gateways.</li>
+            </ul>
+            <div class="achievement-callout">
+              <i class="fa-solid fa-seedling"></i>
+              <p>Kickstarted career by shipping 6 production-grade apps, integrating Google Maps, payment gateways, and REST APIs end-to-end.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Production work across education, enterprise systems, real estate, and high-scale consumer apps.</p>
+        <div class="filter-tabs" id="projectTabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="edtech">EdTech</button>
+          <button class="filter-tab" data-filter="enterprise">Enterprise</button>
+          <button class="filter-tab" data-filter="real-estate">Real Estate</button>
+          <button class="filter-tab" data-filter="consumer">Consumer</button>
+        </div>
+        <div class="projects-grid" id="projectsGrid">
+          <article class="card project-card" data-cat="edtech">
+            <div class="phone-frame">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Pocket School</span>
+              <span class="img-hint">Replace with project1.jpg</span>
+            </div>
+            <h3>Pocket School - EdTech Platform</h3>
+            <span class="badge">5k+ Downloads</span>
+            <p>AI-powered EdTech app with real-time chat, quizzes, and gamified learning modules.</p>
+            <div class="tags"><span>Flutter</span><span>AI</span><span>Firebase</span><span>Real-time</span></div>
+          </article>
+          <article class="card project-card" data-cat="enterprise">
+            <div class="phone-frame">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>MaxApex</span>
+              <span class="img-hint">Replace with project2.jpg</span>
+            </div>
+            <h3>MaxApex Internal Product</h3>
+            <p>Enterprise-level app with WHMCS backend and real-time data synchronization.</p>
+            <div class="tags"><span>Flutter</span><span>WHMCS</span><span>Webhooks</span><span>Enterprise</span></div>
+          </article>
+          <article class="card project-card" data-cat="real-estate">
+            <div class="phone-frame">
+              <i class="fa-solid fa-house-chimney"></i>
+              <span>SquareFoot Exchange</span>
+              <span class="img-hint">Replace with project3.jpg</span>
+            </div>
+            <h3>Real Estate App - SquareFoot Exchange</h3>
+            <p>Property listing platform with map integration and search features.</p>
+            <div class="tags"><span>Flutter</span><span>Maps</span><span>REST APIs</span><span>IoT</span></div>
+          </article>
+          <article class="card project-card" data-cat="consumer">
+            <div class="phone-frame">
+              <i class="fa-solid fa-book-bible"></i>
+              <span>Daily Bible</span>
+              <span class="img-hint">Replace with project4.jpg</span>
+            </div>
+            <h3>Daily Bible</h3>
+            <span class="badge">1M+ Downloads</span>
+            <p>Faith-focused mobile product with content delivery and engagement capabilities.</p>
+            <div class="tags"><span>Flutter</span><span>Firebase</span></div>
+          </article>
+          <article class="card project-card" data-cat="consumer">
+            <div class="phone-frame">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Divvi | VFC | Book a Party</span>
+              <span class="img-hint">Replace with project5.jpg</span>
+            </div>
+            <h3>Divvi | VFC | Book a Party</h3>
+            <p>Suite of production apps with scalable integrations and polished cross-platform experience.</p>
+            <div class="tags"><span>Flutter</span><span>Firebase</span><span>REST APIs</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="opensource" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Open Source</h2>
+        <p class="section-subtitle">Packages and project templates published for the Flutter community.</p>
+        <div class="open-grid">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+              <span class="terminal-title">~ flutter_carousel_slider_plus</span>
+            </div>
+            <div class="terminal-body">
+              <h3>flutter_carousel_slider_plus</h3>
+              <p class="pkg-desc">Reusable Flutter carousel package compatible with Flutter 3.x. Supports auto-play, custom indicators, and infinite scroll.</p>
+              <div class="install-row">
+                <span class="install-prefix">$</span>
+                <span>flutter pub add flutter_carousel_slider_plus</span>
+                <button class="copy-btn" data-copy="flutter pub add flutter_carousel_slider_plus">Copy</button>
+              </div>
+              <div class="open-pkg-links">
+                <a class="pkg-link" href="https://github.com/porus1124962/flutter_carousel_slider_plus" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+              <span class="terminal-title">~ project_structure</span>
+            </div>
+            <div class="terminal-body">
+              <h3>Reusable Flutter Project Structure</h3>
+              <p class="pkg-desc">Scalable GetX architecture template for production Flutter apps — includes folder structure, DI, and routing conventions.</p>
+              <div class="install-row">
+                <span class="install-prefix">$</span>
+                <span>git clone github.com/porus1124962/project_structure</span>
+                <button class="copy-btn" data-copy="git clone https://github.com/porus1124962/project_structure">Copy</button>
+              </div>
+              <div class="open-pkg-links">
+                <a class="pkg-link" href="https://github.com/porus1124962/project_structure" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Verified credentials spanning mobile development, AI, and cloud technologies. Hover a card to reveal skills.</p>
+        <div class="cert-grid">
+          <div class="cert-flip">
+            <div class="cert-flip-inner">
+              <div class="cert-face">
+                <h3><i class="fa-solid fa-award"></i>Flutter Bootcamp</h3>
+                <div class="cert-issuer"><i class="fa-brands fa-google"></i>Google</div>
+                <div class="cert-flip-hint"><i class="fa-solid fa-rotate"></i>&nbsp;Hover to reveal skills</div>
+              </div>
+              <div class="cert-face cert-back-face">
+                <div class="cert-skills">
+                  <span>Flutter</span><span>Dart</span><span>Widgets</span><span>State Mgmt</span><span>Firebase</span>
+                </div>
+                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i>Credential Verified</div>
+              </div>
+            </div>
+          </div>
+          <div class="cert-flip">
+            <div class="cert-flip-inner">
+              <div class="cert-face">
+                <h3><i class="fa-solid fa-award"></i>Generative AI</h3>
+                <div class="cert-issuer"><i class="fa-brands fa-google"></i>Google Cloud</div>
+                <div class="cert-flip-hint"><i class="fa-solid fa-rotate"></i>&nbsp;Hover to reveal skills</div>
+              </div>
+              <div class="cert-face cert-back-face">
+                <div class="cert-skills">
+                  <span>LLMs</span><span>Prompt Engineering</span><span>Vertex AI</span><span>AI APIs</span>
+                </div>
+                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i>Credential Verified</div>
+              </div>
+            </div>
+          </div>
+          <div class="cert-flip">
+            <div class="cert-flip-inner">
+              <div class="cert-face">
+                <h3><i class="fa-solid fa-award"></i>Flutter with Firebase</h3>
+                <div class="cert-issuer"><i class="fa-solid fa-graduation-cap"></i>Udemy</div>
+                <div class="cert-flip-hint"><i class="fa-solid fa-rotate"></i>&nbsp;Hover to reveal skills</div>
+              </div>
+              <div class="cert-face cert-back-face">
+                <div class="cert-skills">
+                  <span>Firestore</span><span>Auth</span><span>FCM</span><span>Storage</span><span>Realtime DB</span>
+                </div>
+                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i>Credential Verified</div>
+              </div>
+            </div>
+          </div>
+          <div class="cert-flip">
+            <div class="cert-flip-inner">
+              <div class="cert-face">
+                <h3><i class="fa-solid fa-award"></i>Version Control</h3>
+                <div class="cert-issuer"><i class="fa-brands fa-google"></i>Google</div>
+                <div class="cert-flip-hint"><i class="fa-solid fa-rotate"></i>&nbsp;Hover to reveal skills</div>
+              </div>
+              <div class="cert-face cert-back-face">
+                <div class="cert-skills">
+                  <span>Git</span><span>GitHub</span><span>Branching</span><span>CI/CD</span>
+                </div>
+                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i>Credential Verified</div>
+              </div>
+            </div>
+          </div>
+          <div class="cert-flip">
+            <div class="cert-flip-inner">
+              <div class="cert-face">
+                <h3><i class="fa-solid fa-award"></i>Advanced Flutter Development</h3>
+                <div class="cert-issuer"><i class="fa-solid fa-earth-asia"></i>Univ. of Hong Kong</div>
+                <div class="cert-flip-hint"><i class="fa-solid fa-rotate"></i>&nbsp;Hover to reveal skills</div>
+              </div>
+              <div class="cert-face cert-back-face">
+                <div class="cert-skills">
+                  <span>Advanced Animations</span><span>Custom Painters</span><span>Performance</span><span>Architecture</span>
+                </div>
+                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i>Credential Verified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+          <article class="card edu-card">
+            <h3><i class="fa-solid fa-graduation-cap" style="color:var(--secondary);margin-right:8px;"></i>Bachelor of Software Engineering</h3>
+            <p>Virtual University of Pakistan &bull; 2022 – Expected 2026</p>
+            <div class="edu-progress-wrap">
+              <div class="edu-progress-label"><span>Degree Progress</span><span>75%</span></div>
+              <div class="edu-progress-track"><div class="edu-progress-fill" data-width="75"></div></div>
+            </div>
+            <div class="edu-modules">
+              <span>Software Design</span><span>Data Structures</span><span>OOP</span><span>DBMS</span><span>Software Engineering</span><span>Computer Networks</span>
+            </div>
+          </article>
+          <article class="card edu-card">
+            <h3><i class="fa-solid fa-laptop-code" style="color:var(--secondary);margin-right:8px;"></i>Aptech 3-Year Diploma</h3>
+            <p>Technical Board &bull; 2018 – 2021</p>
+            <div class="edu-progress-wrap">
+              <div class="edu-progress-label"><span>Completed</span><span>100%</span></div>
+              <div class="edu-progress-track"><div class="edu-progress-fill" data-width="100"></div></div>
+            </div>
+            <div class="edu-modules">
+              <span>C / C++</span><span>Java</span><span>Web Development</span><span>SQL</span><span>Networking</span><span>Problem Solving</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card contact-card">
+          <div class="contact-grid">
+            <div>
+              <div class="available-badge"><span class="status-dot"></span>Available for Hire</div>
+              <p class="section-subtitle" style="margin-bottom:16px;">Let's build impactful mobile products together.</p>
+              <ul class="contact-info">
+                <li><i class="fa-solid fa-phone"></i><a href="tel:+92346900412">+92 346 900412</a></li>
+                <li><i class="fa-solid fa-envelope"></i><a href="mailto:itsshafqat.aptech123@gmail.com">itsshafqat.aptech123@gmail.com</a></li>
+                <li><i class="fa-solid fa-location-dot"></i>Karsaz, Karachi</li>
+                <li><i class="fa-solid fa-globe"></i><a href="https://www.shafqat.com" target="_blank" rel="noopener">www.shafqat.com</a></li>
+                <li><i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/shafqat-ali-6b1a51218" target="_blank" rel="noopener">linkedin.com/in/shafqat-ali-6b1a51218</a></li>
+                <li><i class="fa-brands fa-github"></i><a href="https://github.com/porus1124962" target="_blank" rel="noopener">github.com/porus1124962</a></li>
+              </ul>
+              <a class="whatsapp-btn" href="https://wa.me/92346900412" target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp"></i>Chat on WhatsApp
+              </a>
+            </div>
+            <form class="contact-form" action="#" method="post">
+              <input class="input" type="text" name="name" placeholder="Your Name" required />
+              <input class="input" type="email" name="email" placeholder="Your Email" required />
+              <textarea class="input" name="message" rows="6" placeholder="Your Message" required></textarea>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Built with passion by Shafqat Ali</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/shafqat-ali-6b1a51218" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/porus1124962" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:itsshafqat.aptech123@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:+92346900412" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = [...document.querySelectorAll(".nav-links a")];
+    const navLinksWrap = document.getElementById("navLinks");
+    const sections = [...document.querySelectorAll("main section")];
+    const revealEls = [...document.querySelectorAll(".reveal")];
+    const skillFills = [...document.querySelectorAll(".skill-fill")];
+    const cursorGlow = document.querySelector(".cursor-glow");
+    const typedTextEl = document.getElementById("typedText");
+    const heroSection = document.getElementById("home");
+    const heroContent = document.querySelector(".hero-content");
+
+    const typingWords = [
+      "Senior Flutter Developer",
+      "Flutter Team Lead",
+      "Mobile App Architect",
+      "AI Integration Specialist"
+    ];
+
+    function onScrollUI() {
+      navbar.classList.toggle("scrolled", window.scrollY > 12);
+      const scrollPos = window.scrollY + 130;
+      sections.forEach((section) => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          const active = navLinks.find((lnk) => lnk.getAttribute("href") === `#${section.id}`);
+          if (active) active.classList.add("active");
+        }
+      });
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const translateY = Math.min(window.scrollY * 0.08, 24);
+        heroContent.style.transform = `translate3d(0, ${translateY}px, 0)`;
+      }
+    }
+
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
+    function typeLoop() {
+      const currentWord = typingWords[wordIndex];
+      if (!isDeleting) {
+        typedTextEl.textContent = currentWord.slice(0, ++charIndex);
+        if (charIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(typeLoop, 1300);
+          return;
+        }
+      } else {
+        typedTextEl.textContent = currentWord.slice(0, --charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % typingWords.length;
+        }
+      }
+      setTimeout(typeLoop, isDeleting ? 45 : 80);
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.14 });
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const fill = entry.target;
+        fill.style.width = `${fill.dataset.width}%`;
+        observer.unobserve(fill);
+      });
+    }, { threshold: 0.7 });
+    skillFills.forEach((bar) => skillObserver.observe(bar));
+
+    window.addEventListener("mousemove", (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    });
+
+    function handleHeroParallax(e) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const rect = heroSection.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      const x = (e.clientX - window.innerWidth / 2) * 0.012;
+      const y = (e.clientY - window.innerHeight / 2) * 0.012;
+      canvas.style.transform = `translate3d(${x * -1}px, ${y * -1}px, 0)`;
+      heroContent.style.transform = `translate3d(${x}px, ${y + Math.min(window.scrollY * 0.08, 24)}px, 0)`;
+    }
+
+    function closeMobileMenu() {
+      navLinksWrap.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinksWrap.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+    navLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
+    document.addEventListener("click", (e) => {
+      if (!navLinksWrap.contains(e.target) && !menuToggle.contains(e.target)) closeMobileMenu();
+    });
+
+    const canvas = document.getElementById("particles-canvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const particleCount = Math.min(90, Math.floor(window.innerWidth / 20));
+      particles = Array.from({ length: particleCount }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 2 + 0.8
+      }));
+    }
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(168,85,247,0.8)";
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(124,58,237,${(1 - dist / 110) * 0.16})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener("scroll", onScrollUI);
+    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("mousemove", handleHeroParallax);
+    onScrollUI();
+    typeLoop();
+    resizeCanvas();
+    animateParticles();
+
+    // === FILTER TABS (Skills & Projects) ===
+    function initFilterTabs(tabsId, gridId) {
+      const tabs = document.getElementById(tabsId);
+      const grid = document.getElementById(gridId);
+      if (!tabs || !grid) return;
+      tabs.addEventListener("click", (e) => {
+        const tab = e.target.closest(".filter-tab");
+        if (!tab) return;
+        tabs.querySelectorAll(".filter-tab").forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const filter = tab.dataset.filter;
+        grid.querySelectorAll("[data-cat]").forEach((item) => {
+          item.classList.toggle("filter-hidden", filter !== "all" && item.dataset.cat !== filter);
+        });
+      });
+    }
+    initFilterTabs("skillTabs", "skillsGrid");
+    initFilterTabs("projectTabs", "projectsGrid");
+
+    // === COPY BUTTON (Open Source) ===
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+          const orig = btn.textContent;
+          btn.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(() => { btn.textContent = orig; btn.classList.remove("copied"); }, 2000);
+        });
+      });
+    });
+
+    // === EDUCATION PROGRESS BARS ===
+    const eduFills = [...document.querySelectorAll(".edu-progress-fill")];
+    const eduObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.width = `${entry.target.dataset.width}%`;
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    eduFills.forEach((f) => eduObserver.observe(f));
+
+    // === FLIP CARD TOUCH TOGGLE (Certifications) ===
+    document.querySelectorAll(".cert-flip").forEach((card) => {
+      card.addEventListener("click", () => card.classList.toggle("flipped"));
+    });
+  </script>
+</body>
+</html>
