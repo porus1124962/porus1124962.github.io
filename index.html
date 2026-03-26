@@ -669,14 +669,40 @@
 
     /* === PHONE FRAME (PROJECTS) === */
     .phone-frame {
-      position: relative; height: 200px;
+      position: relative; height: 320px; width: 160px;
       background: linear-gradient(145deg, #0d0d1c, #141428);
-      border-radius: 22px; border: 3px solid rgba(168,85,247,0.48);
-      padding: 22px 14px 14px; margin-bottom: 14px;
+      border-radius: 28px; border: 3px solid rgba(168,85,247,0.48);
+      padding: 24px 10px 10px; margin: 0 auto 14px;
       box-shadow: 0 0 0 5px rgba(168,85,247,0.06), 0 0 28px rgba(124,58,237,0.18);
       display: flex; flex-direction: column; align-items: center;
       justify-content: center; color: #bda5e8; text-align: center;
       gap: 5px; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .phone-frame img {
+      width: calc(100% - 20px); height: calc(100% - 34px);
+      object-fit: cover; border-radius: 16px;
+      position: absolute; top: 24px; left: 10px;
+    }
+    .phone-frame::before {
+      content: ''; position: absolute; top: 12px; left: 50%;
+      transform: translateX(-50%); width: 48px; height: 6px;
+      background: rgba(168,85,247,0.5); border-radius: 999px;
+      z-index: 2;
+    }
+    .phone-screens {
+      display: flex; gap: 15px; justify-content: center;
+      align-items: flex-start; margin-bottom: 14px;
+    }
+    .phone-screens.triple {
+      gap: 10px;
+    }
+    .phone-screens.triple .phone-frame {
+      width: 140px; height: 280px;
+      padding: 20px 8px 8px;
+    }
+    .phone-screens.triple .phone-frame img {
+      width: calc(100% - 16px); height: calc(100% - 28px);
+      top: 20px; left: 8px;
     }
     .phone-frame::before {
       content: ''; position: absolute; top: 8px; left: 50%;
@@ -690,6 +716,11 @@
       transform: scale(1.03) translateY(-4px);
       box-shadow: 0 0 0 5px rgba(168,85,247,0.12), 0 0 42px rgba(124,58,237,0.32);
       border-color: rgba(168,85,247,0.75);
+    }
+    .project-card:hover .phone-screens .phone-frame {
+      transform: scale(1.05) translateY(-6px);
+      box-shadow: 0 0 0 5px rgba(168,85,247,0.16), 0 0 45px rgba(124,58,237,0.38);
+      border-color: rgba(168,85,247,0.85);
     }
 
     /* === TERMINAL CARD (OPEN SOURCE) === */
@@ -871,8 +902,7 @@
         <p class="section-subtitle">An engineering-first mobile leader focused on scalable architecture, polished UX, and business impact.</p>
         <div class="about-wrap">
           <div class="photo-placeholder card">
-            <!-- REPLACE: Add your photo as profile.jpg -->
-            Professional Photo Placeholder<br />profile.jpg
+            <img src="assets/my_pic.jpeg" alt="Shafqat Ali - Professional Profile Photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
           </div>
           <div>
             <span class="about-tagline"><i class="fa-solid fa-sparkles"></i>Flutter Architect | Team Builder | Product-Minded Engineer</span>
@@ -1037,21 +1067,44 @@
         </div>
         <div class="projects-grid" id="projectsGrid">
           <article class="card project-card" data-cat="edtech">
-            <div class="phone-frame">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>Pocket School</span>
-              <span class="img-hint">Replace with project1.jpg</span>
+            <div class="phone-screens triple">
+              <div class="phone-frame">
+                <img src="assets/pocket.jpg" alt="Pocket School App Screenshot 1">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/pocket2.jpg" alt="Pocket School App Screenshot 2">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/pocket3.jpeg" alt="Pocket School App Screenshot 3">
+              </div>
             </div>
             <h3>Pocket School - EdTech Platform</h3>
             <span class="badge">5k+ Downloads</span>
             <p>AI-powered EdTech app with real-time chat, quizzes, and gamified learning modules.</p>
             <div class="tags"><span>Flutter</span><span>AI</span><span>Firebase</span><span>Real-time</span></div>
           </article>
+          <article class="card project-card" data-cat="edtech">
+            <div class="phone-screens">
+              <div class="phone-frame">
+                <img src="assets/vuBuddy.jpg" alt="VU Buddy Light Theme">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/vuBuddyDark.jpg" alt="VU Buddy Dark Theme">
+              </div>
+            </div>
+            <h3>VU Buddy - EdTech Platform</h3>
+            <span class="badge">Dual Theme</span>
+            <p>Educational platform with dual theme support and AI-powered learning assistance for enhanced student experience.</p>
+            <div class="tags"><span>Flutter</span><span>AI</span><span>Dark Mode</span><span>Education</span></div>
+          </article>
           <article class="card project-card" data-cat="enterprise">
-            <div class="phone-frame">
-              <i class="fa-solid fa-building-columns"></i>
-              <span>MaxApex</span>
-              <span class="img-hint">Replace with project2.jpg</span>
+            <div class="phone-screens">
+              <div class="phone-frame">
+                <img src="assets/maxapex.jpg" alt="MaxApex Enterprise App Screenshot 1">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/maxapex2.jpeg" alt="MaxApex Enterprise App Screenshot 2">
+              </div>
             </div>
             <h3>MaxApex Internal Product</h3>
             <p>Enterprise-level app with WHMCS backend and real-time data synchronization.</p>
@@ -1059,19 +1112,23 @@
           </article>
           <article class="card project-card" data-cat="real-estate">
             <div class="phone-frame">
-              <i class="fa-solid fa-house-chimney"></i>
-              <span>SquareFoot Exchange</span>
-              <span class="img-hint">Replace with project3.jpg</span>
+              <img src="assets/ppWallet.jpg" alt="SquareFoot Exchange Real Estate App Screenshot">
             </div>
             <h3>Real Estate App - SquareFoot Exchange</h3>
             <p>Property listing platform with map integration and search features.</p>
             <div class="tags"><span>Flutter</span><span>Maps</span><span>REST APIs</span><span>IoT</span></div>
           </article>
           <article class="card project-card" data-cat="consumer">
-            <div class="phone-frame">
-              <i class="fa-solid fa-book-bible"></i>
-              <span>Daily Bible</span>
-              <span class="img-hint">Replace with project4.jpg</span>
+            <div class="phone-screens triple">
+              <div class="phone-frame">
+                <img src="assets/dailyBible.jpg" alt="Daily Bible App Screenshot 1">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/dailybible2.jpeg" alt="Daily Bible App Screenshot 2">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/dailybible3.jpeg" alt="Daily Bible App Screenshot 3">
+              </div>
             </div>
             <h3>Daily Bible</h3>
             <span class="badge">1M+ Downloads</span>
@@ -1079,14 +1136,38 @@
             <div class="tags"><span>Flutter</span><span>Firebase</span></div>
           </article>
           <article class="card project-card" data-cat="consumer">
-            <div class="phone-frame">
-              <i class="fa-solid fa-layer-group"></i>
-              <span>Divvi | VFC | Book a Party</span>
-              <span class="img-hint">Replace with project5.jpg</span>
+            <div class="phone-screens triple">
+              <div class="phone-frame">
+                <img src="assets/career1.jpg" alt="Career Nest Admin Panel">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/career2.jpeg" alt="Career Nest Seeker Panel">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/career3.jpeg" alt="Career Nest Employer Panel">
+              </div>
             </div>
-            <h3>Divvi | VFC | Book a Party</h3>
-            <p>Suite of production apps with scalable integrations and polished cross-platform experience.</p>
-            <div class="tags"><span>Flutter</span><span>Firebase</span><span>REST APIs</span></div>
+            <h3>Career Nest - Job Portal</h3>
+            <span class="badge">3-Panel System</span>
+            <p>Comprehensive job searching and posting app with three dedicated panels: Admin, Job Seeker, and Employer, featuring detailed dashboards and analytics.</p>
+            <div class="tags"><span>Flutter</span><span>Admin Panel</span><span>Dashboard</span><span>Job Portal</span></div>
+          </article>
+          <article class="card project-card" data-cat="consumer">
+            <div class="phone-screens triple">
+              <div class="phone-frame">
+                <img src="assets/womanSaftey.jpg" alt="Woman Safety App Screenshot 1">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/ws2.jpeg" alt="Woman Safety App Screenshot 2">
+              </div>
+              <div class="phone-frame">
+                <img src="assets/ws3.jpeg" alt="Woman Safety App Screenshot 3">
+              </div>
+            </div>
+            <h3>Woman Safety - Emergency App</h3>
+            <span class="badge">Safety First</span>
+            <p>Comprehensive women safety application with emergency alerts, location tracking, and quick SOS features for enhanced personal security.</p>
+            <div class="tags"><span>Flutter</span><span>GPS</span><span>Emergency</span><span>Safety</span></div>
           </article>
         </div>
       </div>
